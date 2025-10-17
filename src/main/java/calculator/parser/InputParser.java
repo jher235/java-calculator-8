@@ -25,7 +25,9 @@ public class InputParser {
     }
 
     private String getDelimiterRegex(List<String> delimiters) {
-        return String.join("|", delimiters);
+        return delimiters.stream()
+            .map(Pattern::quote)
+            .collect(Collectors.joining("|"));
     }
 
     private String parseDelimiter(String input, List<String> delimiters){
