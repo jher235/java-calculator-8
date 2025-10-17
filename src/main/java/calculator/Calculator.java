@@ -2,24 +2,26 @@ package calculator;
 
 import calculator.io.IOHandler;
 import calculator.parser.Input;
-import calculator.parser.InputParser;
+import calculator.parser.Parser;
 import java.util.List;
 
-public class Calculator {
+public class Calculator<T> {
 
     private final IOHandler ioHandler;
-    private final InputParser inputParser;
+    private final Parser<T> parser;
 
     public void run(){
         Input<String> stringInput = Input.createStringInput(ioHandler.requestInput());
-        List<? extends Number> numbers = inputParser.parseToIntegers(stringInput);
+        List<T> list = parser.parseFromStringInput(stringInput);
+
+
     }
 
     public Calculator(
         IOHandler ioHandler,
-        InputParser inputParser
+        Parser<T> parser
     ) {
         this.ioHandler = ioHandler;
-        this.inputParser = new InputParser();
+        this.parser = parser;
     }
 }

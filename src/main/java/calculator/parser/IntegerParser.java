@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class InputParser {
+public class IntegerParser implements Parser<Integer> {
 
     private static final String CUSTOM_DELIMITER_RANGE_PARSER = "(?s)^(//.*\\\\n)(.*)$";
     private static final String CUSTOM_DELIMITER_PARSER = "//(.*?)\\\\n";
@@ -16,7 +16,8 @@ public class InputParser {
     private static final String CUSTOM_DELIMITER_START = "//";
     private static final String JOIN_STRING = "|";
 
-    public List<Integer> parseToIntegers(Input<String> input){
+    @Override
+    public List<Integer> parseFromStringInput(Input<String> input){
         String inputValue = input.getValue();
 
         List<String> delimiters = new ArrayList<>(defaultDelimiters);

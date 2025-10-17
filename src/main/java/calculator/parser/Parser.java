@@ -1,0 +1,8 @@
+package calculator.parser;
+
+import java.util.List;
+
+public interface Parser <T>{
+    List<T> parseFromStringInput(Input<String> stringInput);
+
+}
