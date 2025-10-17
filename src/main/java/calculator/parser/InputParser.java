@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class InputParser {
 
@@ -12,6 +13,8 @@ public class InputParser {
     private static final String CUSTOM_DELIMITER_PARSER = "//(.*?)\\\\n";
 
     private static final List<String> defaultDelimiters = List.of( ",", ";");
+    private static final String CUSTOM_DELIMITER_START = "//";
+    private static final String JOIN_STRING = "|";
 
     public List<Integer> parseToIntegers(Input<String> input){
         String inputValue = input.getValue();
@@ -27,11 +30,11 @@ public class InputParser {
     private String getDelimiterRegex(List<String> delimiters) {
         return delimiters.stream()
             .map(Pattern::quote)
-            .collect(Collectors.joining("|"));
+            .collect(Collectors.joining(JOIN_STRING));
     }
 
     private String parseDelimiter(String input, List<String> delimiters){
-        if(input != null && input.startsWith("//")){
+        if(input != null && input.startsWith(CUSTOM_DELIMITER_START)){
             Pattern pattern = Pattern.compile(CUSTOM_DELIMITER_RANGE_PARSER);
             Matcher matcher = pattern.matcher(input);
 
