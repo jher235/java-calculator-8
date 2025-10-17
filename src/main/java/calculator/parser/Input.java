@@ -16,4 +16,8 @@ public class Input <T> {
         return new Input<>(stringInput);
     }
 
+    public T getValue() {
+        return value;
+    }
+
 }
