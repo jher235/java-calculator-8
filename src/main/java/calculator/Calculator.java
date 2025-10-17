@@ -1,13 +1,17 @@
 package calculator;
 
 import calculator.io.IOHandler;
+import calculator.parser.Input;
+import calculator.parser.InputParser;
+import java.util.List;
 
 public class Calculator {
 
     private final IOHandler ioHandler;
 
     public void run(){
-        String input = ioHandler.requestInput();
+        Input<String> stringInput = Input.createStringInput(ioHandler.requestInput());
+
     }
 
     public Calculator(IOHandler ioHandler) {
