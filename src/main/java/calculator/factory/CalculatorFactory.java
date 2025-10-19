@@ -19,7 +19,7 @@ public class CalculatorFactory {
         Integer.class, new IntegerAdder()
     );
 
-    public <T> Calculator<T> createCalculator(Class<T> type) {
+    public <T extends Number> Calculator<T> createCalculator(Class<T> type) {
         IOHandler<T> iOHandler = new IOConsoleHandler<>();
         Parser<T> parser = getParser(type);
         Operator<T> operator = getOperator(type);
@@ -31,7 +31,7 @@ public class CalculatorFactory {
     }
 
     @SuppressWarnings("unchecked")
-    private <T> Parser<T> getParser(Class<T> type){
+    private <T extends Number> Parser<T> getParser(Class<T> type){
         Parser<T> parser = (Parser<T>) parserHandler.get(type);
 
         if(parser == null){
@@ -42,7 +42,7 @@ public class CalculatorFactory {
     }
 
     @SuppressWarnings("unchecked")
-    private <T> Operator<T> getOperator(Class<T> type){
+    private <T extends Number> Operator<T> getOperator(Class<T> type){
         Operator<T> operator = (Operator<T>) parserOperator.get(type);
 
         if(operator == null){
