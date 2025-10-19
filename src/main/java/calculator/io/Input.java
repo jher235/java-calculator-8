@@ -1,4 +1,4 @@
-package calculator.parser;
+package calculator.io;
 
 
 public class Input <T> {

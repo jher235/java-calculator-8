@@ -2,7 +2,7 @@ package calculator;
 
 import calculator.io.IOHandler;
 import calculator.operator.Operator;
-import calculator.parser.Input;
+import calculator.io.Input;
 import calculator.parser.Parser;
 import java.util.List;
 

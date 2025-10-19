@@ -3,7 +3,6 @@ package calculator.io;
 import static calculator.constant.Message.GUIDE_MESSAGE;
 import static calculator.constant.Message.RESULT_MESSAGE;
 
-import calculator.parser.Input;
 import camp.nextstep.edu.missionutils.Console;
 
 public class IOConsoleHandler implements IOHandler {
