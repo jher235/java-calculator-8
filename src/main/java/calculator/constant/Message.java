@@ -2,7 +2,8 @@ package calculator.constant;
 
 public enum Message {
 
-    GUIDE_MESSAGE("덧셈할 문자열을 입력해 주세요.")
+    GUIDE_MESSAGE("덧셈할 문자열을 입력해 주세요."),
+    RESULT_MESSAGE("결과는: ")
     ;
     private final String message;
 
