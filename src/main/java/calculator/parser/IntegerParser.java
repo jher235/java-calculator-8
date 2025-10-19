@@ -24,8 +24,16 @@ public class IntegerParser implements Parser<Integer> {
         String inputWithoutDelimiter = parseDelimiter(inputValue, delimiters);
 
         return Arrays.stream(inputWithoutDelimiter.split(getDelimiterRegex(delimiters)))
-            .map(Integer::parseInt)
+            .map(this::convertToInteger)
             .toList();
+    }
+
+    private Integer convertToInteger(String input){
+         try {
+             return Integer.parseInt(input);
+         }catch (Exception e){
+             throw new IllegalArgumentException("invalid input format");
+         }
     }
 
     private String getDelimiterRegex(List<String> delimiters) {
