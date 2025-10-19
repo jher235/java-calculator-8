@@ -14,7 +14,7 @@ public class Calculator<T extends Number> {
 
     public void run() {
         Input<String> stringInput = ioHandler.requestStringInput();
-        List<T> list = parser.parseNumberFromString(stringInput.getValue());
+        List<T> list = parser.parseFromString(stringInput.getValue());
         T operatedValue = operator.operate(list);
         ioHandler.printCalculateResult(operatedValue);
     }

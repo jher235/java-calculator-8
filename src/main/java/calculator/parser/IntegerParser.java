@@ -19,7 +19,7 @@ public class IntegerParser implements Parser<Integer> {
 
 
     @Override
-    public List<Integer> parseNumberFromString(String input){
+    public List<Integer> parseFromString(String input){
         List<String> delimiters = new ArrayList<>(DEFAULT_LIMITERS);
         String inputWithoutDelimiter = parseDelimiter(input, delimiters);
 
