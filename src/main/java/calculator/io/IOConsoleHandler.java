@@ -5,7 +5,7 @@ import static calculator.constant.Message.RESULT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class IOConsoleHandler<T> implements IOHandler<T> {
+public class IOConsoleHandler implements IOHandler {
 
     @Override
     public String requestInput() {
@@ -14,7 +14,7 @@ public class IOConsoleHandler<T> implements IOHandler<T> {
     }
 
     @Override
-    public void printResult(T output) {
+    public void printCalculateResult(Number output) {
         System.out.println(RESULT_MESSAGE + output.toString());
     }
 

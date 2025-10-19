@@ -1,8 +1,8 @@
 package calculator.io;
 
-public interface IOHandler<T> {
+public interface IOHandler {
 
     String requestInput();
 
-    void printResult(T output);
+    void printCalculateResult(Number output);
 }

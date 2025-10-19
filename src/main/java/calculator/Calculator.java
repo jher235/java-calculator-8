@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Calculator<T extends Number> {
 
-    private final IOHandler<T> ioHandler;
+    private final IOHandler ioHandler;
     private final Parser<T> parser;
     private final Operator<T> operator;
 
@@ -16,7 +16,7 @@ public class Calculator<T extends Number> {
         Input<String> stringInput = Input.createStringInput(ioHandler.requestInput());
         List<T> list = parser.parseFromStringInput(stringInput);
         T operatedValue = operator.operate(list);
-        ioHandler.printResult(operatedValue);
+        ioHandler.printCalculateResult(operatedValue);
     }
 
     public Calculator(
