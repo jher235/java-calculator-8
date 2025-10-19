@@ -11,7 +11,7 @@ public class Input <T> {
 
     public static Input<String> createStringInput(String stringInput){
         if(stringInput == null || stringInput.isBlank()){
-            throw new IllegalArgumentException("input string is null or blank");
+            throw new IllegalArgumentException("input string can't be empty");
         }
         return new Input<>(stringInput);
     }
