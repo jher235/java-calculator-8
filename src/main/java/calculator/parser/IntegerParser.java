@@ -12,13 +12,15 @@ public class IntegerParser implements Parser<Integer> {
     private static final String CUSTOM_DELIMITER_RANGE_PARSER = "(?s)^(//.*\\\\n)(.*)$";
     private static final String CUSTOM_DELIMITER_PARSER = "//(.*?)\\\\n";
 
-    private static final List<String> defaultDelimiters = List.of( ",", ";");
     private static final String CUSTOM_DELIMITER_START = "//";
     private static final String JOIN_STRING = "|";
 
+    private static final List<String> DEFAULT_LIMITERS = List.of( ",", ":");
+
+
     @Override
     public List<Integer> parseNumberFromString(String input){
-        List<String> delimiters = new ArrayList<>(defaultDelimiters);
+        List<String> delimiters = new ArrayList<>(DEFAULT_LIMITERS);
         String inputWithoutDelimiter = parseDelimiter(input, delimiters);
 
         return Arrays.stream(inputWithoutDelimiter.split(getDelimiterRegex(delimiters)))
