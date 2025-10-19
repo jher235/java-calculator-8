@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Calculator<T> {
 
-    private final IOHandler ioHandler;
+    private final IOHandler<T> ioHandler;
     private final Parser<T> parser;
     private final Operator<T> operator;
 

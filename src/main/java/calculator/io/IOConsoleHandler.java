@@ -4,8 +4,9 @@ import static calculator.constant.Message.GUIDE_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class IOConsoleHandler implements IOHandler {
+public class IOConsoleHandler<T> implements IOHandler<T> {
 
+    @Override
     public String requestInput() {
         printGuideMessage();
         return Console.readLine();

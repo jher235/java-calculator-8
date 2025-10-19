@@ -1,6 +1,6 @@
 package calculator.io;
 
-public interface IOHandler {
+public interface IOHandler<T> {
 
     String requestInput();
 

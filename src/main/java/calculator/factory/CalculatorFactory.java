@@ -20,7 +20,7 @@ public class CalculatorFactory {
     );
 
     public <T> Calculator<T> createCalculator(Class<T> type) {
-        IOHandler iOHandler =  new IOConsoleHandler();
+        IOHandler<T> iOHandler = new IOConsoleHandler<>();
         Parser<T> parser = getParser(type);
         Operator<T> operator = getOperator(type);
         return new Calculator<>(
