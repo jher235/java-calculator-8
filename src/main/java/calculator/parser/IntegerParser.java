@@ -17,11 +17,9 @@ public class IntegerParser implements Parser<Integer> {
     private static final String JOIN_STRING = "|";
 
     @Override
-    public List<Integer> parseFromStringInput(Input<String> input){
-        String inputValue = input.getValue();
-
+    public List<Integer> parseNumberFromString(String input){
         List<String> delimiters = new ArrayList<>(defaultDelimiters);
-        String inputWithoutDelimiter = parseDelimiter(inputValue, delimiters);
+        String inputWithoutDelimiter = parseDelimiter(input, delimiters);
 
         return Arrays.stream(inputWithoutDelimiter.split(getDelimiterRegex(delimiters)))
             .map(this::convertToInteger)

@@ -12,9 +12,9 @@ public class Calculator<T extends Number> {
     private final Parser<T> parser;
     private final Operator<T> operator;
 
-    public void run(){
-        Input<String> stringInput = Input.createStringInput(ioHandler.requestInput());
-        List<T> list = parser.parseFromStringInput(stringInput);
+    public void run() {
+        Input<String> stringInput = ioHandler.requestStringInput();
+        List<T> list = parser.parseNumberFromString(stringInput.getValue());
         T operatedValue = operator.operate(list);
         ioHandler.printCalculateResult(operatedValue);
     }

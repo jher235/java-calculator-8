@@ -1,8 +1,10 @@
 package calculator.io;
 
+import calculator.parser.Input;
+
 public interface IOHandler {
 
-    String requestInput();
+    Input<String> requestStringInput();
 
     void printCalculateResult(Number output);
 }
