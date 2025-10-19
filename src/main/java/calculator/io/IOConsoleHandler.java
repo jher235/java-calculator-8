@@ -16,7 +16,7 @@ public class IOConsoleHandler implements IOHandler {
 
     @Override
     public void printCalculateResult(Number output) {
-        System.out.println(RESULT_MESSAGE + output.toString());
+        System.out.println(RESULT_MESSAGE.getMessage() + output.toString());
     }
 
     private void printGuideMessage(){
