@@ -9,7 +9,7 @@ import java.util.List;
 public class Calculator<T extends Number> {
 
     private final IOHandler ioHandler;
-    private final Parser<T> parser;
+    private final Parser<T, String> parser;
     private final Operator<T> operator;
 
     public void run() {
@@ -21,7 +21,7 @@ public class Calculator<T extends Number> {
 
     public Calculator(
         IOHandler ioHandler,
-        Parser<T> parser,
+        Parser<T, String> parser,
         Operator<T> operator
     ) {
         this.ioHandler = ioHandler;

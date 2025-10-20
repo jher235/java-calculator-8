@@ -1,5 +1,6 @@
 package calculator.parser;
 
+import calculator.parser.converter.Converter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class IntegerParser implements Parser<Integer> {
+public class IntegerFromStringParser extends Parser<Integer, String> {
 
     private static final String CUSTOM_DELIMITER_RANGE_PARSER = "(?s)^(//.*\\\\n)(.*)$";
     private static final String CUSTOM_DELIMITER_PARSER = "//(.*?)\\\\n";
@@ -17,6 +18,9 @@ public class IntegerParser implements Parser<Integer> {
 
     private static final List<String> DEFAULT_LIMITERS = List.of( ",", ":");
 
+    public IntegerFromStringParser(Converter<Integer, String> converter) {
+        super(converter);
+    }
 
     @Override
     public List<Integer> parseFromString(String input){
@@ -24,16 +28,8 @@ public class IntegerParser implements Parser<Integer> {
         String inputWithoutDelimiter = parseDelimiter(input, delimiters);
 
         return Arrays.stream(inputWithoutDelimiter.split(getDelimiterRegex(delimiters)))
-            .map(this::convertToInteger)
+            .map(converter::convert)
             .toList();
-    }
-
-    private Integer convertToInteger(String input){
-         try {
-             return Integer.parseInt(input);
-         }catch (Exception e){
-             throw new IllegalArgumentException("invalid input format");
-         }
     }
 
     private String getDelimiterRegex(List<String> delimiters) {
